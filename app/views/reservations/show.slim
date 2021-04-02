@@ -5,3 +5,8 @@
     .card-body
       p.card-text
         = @reservation.comment
+    .card-body
+      - if @reservation_files.present?
+        - @reservation_files.each do |file|
+          img src=file.src.model.src
+      

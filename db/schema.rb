@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_02_070956) do
+ActiveRecord::Schema.define(version: 2021_04_02_080609) do
 
-  create_table "resavation_images", charset: "utf8mb4", force: :cascade do |t|
+  create_table "reservation_images", charset: "utf8mb4", force: :cascade do |t|
     t.string "src", null: false
     t.bigint "reservation_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["reservation_id"], name: "index_resavation_images_on_reservation_id"
+    t.index ["reservation_id"], name: "index_reservation_images_on_reservation_id"
   end
 
   create_table "reservations", charset: "utf8mb4", force: :cascade do |t|
@@ -37,5 +37,5 @@ ActiveRecord::Schema.define(version: 2021_04_02_070956) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  add_foreign_key "resavation_images", "reservations"
+  add_foreign_key "reservation_images", "reservations"
 end

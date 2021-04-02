@@ -7,4 +7,7 @@
     .form-group
       = form.label :comment, '内容'
       = form.text_area :comment, class: 'form-control'
+    .form-group
+      = form.fields_for :reservation_images do |i|
+        = i.file_field :src, multiple: true, name: "reservation_images[src][]"
     = form.submit '登録', class: 'btn btn-primary'

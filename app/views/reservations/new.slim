@@ -1,0 +1,10 @@
+.container
+  h1.mt-4 新規登録
+  = form_with url: reservations_path, model: @reservation do |form|
+    .form-group
+      = form.label :pet_name, 'おなまえ'
+      = form.text_field :pet_name, class: 'form-control'
+    .form-group
+      = form.label :comment, '内容'
+      = form.text_area :comment, class: 'form-control'
+    = form.submit '登録', class: 'btn btn-primary'

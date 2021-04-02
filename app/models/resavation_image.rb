@@ -1,0 +1,3 @@
+class ResavationImage < ApplicationRecord
+  
+end

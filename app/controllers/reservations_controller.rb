@@ -1,6 +1,6 @@
 class ReservationsController < ApplicationController
   def index
-    @reservations = Reservation.all
+    @reservations = Hospital.instance.hospitals
     logger.debug(@reservations)
   end
   def new

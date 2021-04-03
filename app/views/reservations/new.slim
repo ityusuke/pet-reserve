@@ -14,7 +14,7 @@
       /   = form.text_field :pet_name, class: 'form-control'
       .form-group
         = form.label :hospital_id, '施術院'
-        = form.text_field :hospital_id, class: 'form-control'
+        = form.select :hospital_id,[["理工学部", "理工学部"], ["経済学部", "経済学部"], ["法学部", "法学部"], ["医学部", "医学部"]],{include_blank: '選択してください'}, class: 'form-control'
       .form-group
         = form.label :disease_id, '病状'
         = form.text_field :disease_id, class: 'form-control'

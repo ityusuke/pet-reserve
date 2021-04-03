@@ -1,0 +1,89 @@
+body {
+  font-family: Noto Sans;
+}
+
+a {
+  text-decoration: none !important;
+  color: #333 !important;
+}
+
+a:hover {
+  opacity: 0.8 !important;
+}
+
+.bg_container {
+  width: 575px;
+  background-color: #F6FFEF;
+  padding-top: 50px;
+}
+
+.page_heading {
+  font-size: 18px;
+  width: 80%;
+  margin: 0 auto;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.bg_inner {
+  width: 80%;
+  border-radius: 10px;
+  background-color: #C8F2AE;
+  border: #FFF solid 1px;
+  -webkit-box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.4);
+          box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.4);
+  padding: 35px;
+  margin: 0 auto;
+  margin-bottom: 40px;
+}
+
+.reservation_compo {
+  width: 80%;
+  border-radius: 10px;
+  background-color: #C8F2AE;
+  border: #FFF solid 1px;
+  -webkit-box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.4);
+          box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.4);
+  padding: 30px;
+  margin: 0 auto;
+  margin-bottom: 40px;
+}
+
+.main_text {
+  font-size: 14px;
+  color: #333;
+}
+
+.common_btn {
+  display: inline-block;
+  width: 117px;
+  height: 33px;
+  background-color: #FFF;
+  border: none;
+  color: #333;
+  border-radius: 50px;
+  -webkit-box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.4);
+          box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.4);
+  text-align: center;
+  vertical-align: middle;
+}
+
+.common_btn p {
+  padding-top: 6px;
+  font-size: 14px;
+}
+
+.betweenitems {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding-top: 10px;
+}
+
+.block {
+  display: block;
+}
+/*# sourceMappingURL=common.css.map */

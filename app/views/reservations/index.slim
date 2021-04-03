@@ -1,13 +1,11 @@
-.container
-  h1.mt-4 reservations#index
-  = link_to '新規登録', new_reservation_path
-
-  // 追記
+.bg_container
+  h3.page_heading 予約一覧
+  = link_to '新規登録', new_reservation_path,class: 'common_btn'
   - @reservations.each do |reservation|
-    .card.my-4
-      .card-header
-        = reservation.pet_name
-      .card-body
-        p.card-text
-          = reservation.comment
-        = link_to '詳細', reservation_path(reservation), class: 'btn btn-success mr-2'
+    = link_to reservation_path(reservation), class: 'block'
+      .reservation_compo
+        .card-header
+          = reservation.pet_name
+        .card-body
+          p.card-text
+            = reservation.comment

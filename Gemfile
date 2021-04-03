@@ -29,6 +29,14 @@ gem 'pry-rails'
 gem 'carrierwave', '~> 1.0'
 gem 'mini_magick'
 
+gem 'bootstrap', '~> 4.1.1'
+gem 'jquery-rails'
+gem 'jquery-ui-rails'
+gem "bootstrap4-datetime-picker-rails"
+gem 'momentjs-rails'
+gem "font-awesome-rails"
+gem 'jquery-turbolinks'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 

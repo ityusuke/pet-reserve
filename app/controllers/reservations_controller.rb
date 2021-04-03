@@ -32,6 +32,6 @@ class ReservationsController < ApplicationController
   end
 
   def reservation_params 
-    params.require(:reservation).permit(:pet_name,:comment,reservation_images_attributes:[:src,:_destroy,:id])
+    params.require(:reservation).permit(:pet_name,:comment,:hospital_id,:disease_id,:start_date,:end_date,reservation_images_attributes:[:src,:_destroy,:id])
   end
 end

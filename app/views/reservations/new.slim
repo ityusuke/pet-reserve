@@ -1,13 +1,53 @@
-.container
-  h1.mt-4 新規登録
-  = form_with url: reservations_path, model: @reservation do |form|
-    .form-group
-      = form.label :pet_name, 'おなまえ'
-      = form.text_field :pet_name, class: 'form-control'
-    .form-group
-      = form.label :comment, '内容'
-      = form.text_area :comment, class: 'form-control'
-    .form-group
-      = form.fields_for :reservation_images do |i|
-        = i.file_field :src, multiple: true, name: "reservation_images[src][]"
-    = form.submit '登録', class: 'btn btn-primary'
+.bg_container
+  h3.page_heading 予約登録
+  .bg_inner
+    = form_with url: reservations_path, model: @reservation do |form|
+      .form-group
+        = form.label :pet_name, 'おなまえ'
+        = form.text_field :pet_name, class: 'form-control'
+      .form-group
+        = form.label :reservation_images, '写真(複数枚登録できます)'
+        = form.fields_for :reservation_images do |i|
+          = i.file_field :src, multiple: true, name: "reservation_images[src][]"
+      / .form-group
+      /   = form.label :pet_name, '種類'
+      /   = form.text_field :pet_name, class: 'form-control'
+      .form-group
+        = form.label :hospital_id, '施術院'
+        = form.text_field :hospital_id, class: 'form-control'
+      .form-group
+        = form.label :disease_id, '病状'
+        = form.text_field :disease_id, class: 'form-control'
+      .input-group data-target-input="nearest" 
+        = form.label :start_date, '施術開始時間'
+        = form.text_field :start_date, id: "start_date", class: "form-control datepicker", data: { target: '#start_date'}
+        .input-group-append data-target="#start_date" data-toggle="datetimepicker" 
+          .input-group-text
+            i.fa.fa-calendar
+      .input-group data-target-input="nearest" 
+        = form.label :end_date, '施術終了時間'
+        = form.text_field :end_date, id: "end_date", class: "form-control datepicker", data: { target: '#end_date'}
+        .input-group-append data-target="#end_date" data-toggle="datetimepicker" 
+          .input-group-text
+            i.fa.fa-calendar
+      .form-group
+        = form.label :comment, 'コメント'
+        = form.text_area :comment, class: 'form-control'
+      .betweenitems
+        = link_to reservations_path,class: 'common_btn' 
+          <p>戻る</p>
+        = form.submit '登録', class: 'common_btn'
+javascript: 
+  $(function () {
+    $('.datepicker').datetimepicker({
+      format: 'YYYY-MM-DD HH:mm'
+    });
+  });
+link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" /
+/! Optional theme
+link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" rel="stylesheet" /
+link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css" rel="stylesheet" /
+script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js" 
+script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" 
+script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" 
+script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js" 

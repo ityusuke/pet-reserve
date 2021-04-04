@@ -1,12 +1,25 @@
-.container
-  .card.my-4
-    .card-header
-      = @reservation.pet_name
+.bg_container
+  h3.page_heading 予約詳細
+  .bg_inner.my-4
+    .compo_heading
+      -p @reservation.pet_name
+      p 2021/03/21 16:00 ~ 18:00
+    .pet_main
+      .pet_imgWrap
+        - if @reservation_files.present?
+          - @reservation_files.each do |file|
+            img src=file.src.model.src
+        - else 
+          img src="/default.jpg"
+      .pet_about
+        p 種別 : 犬
+        p 施術院 : 池袋院
+        p 症状 : 嘔吐
     .card-body
       p.card-text
         = @reservation.comment
-    .card-body
-      - if @reservation_files.present?
-        - @reservation_files.each do |file|
-          img src=file.src.model.src
-      
+    .betweenitems
+        = link_to reservations_path,class: 'common_btn' 
+          <p>戻る</p>
+        = link_to reservations_path,class: 'common_btn' 
+          <p>戻る</p>

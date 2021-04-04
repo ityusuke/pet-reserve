@@ -10,7 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_02_080609) do
+ActiveRecord::Schema.define(version: 2021_04_03_111359) do
+
+  create_table "diseases", charset: "utf8mb4", force: :cascade do |t|
+    t.string "disease_name"
+    t.bigint "reservation_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["reservation_id"], name: "index_diseases_on_reservation_id"
+  end
+
+  create_table "hospitals", charset: "utf8mb4", force: :cascade do |t|
+    t.string "hospital_name"
+    t.bigint "reservation_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["reservation_id"], name: "index_hospitals_on_reservation_id"
+  end
+
+  create_table "pet_types", charset: "utf8mb4", force: :cascade do |t|
+    t.string "type_name"
+    t.bigint "reservation_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["reservation_id"], name: "index_pet_types_on_reservation_id"
+  end
 
   create_table "reservation_images", charset: "utf8mb4", force: :cascade do |t|
     t.string "src", null: false
@@ -21,21 +45,24 @@ ActiveRecord::Schema.define(version: 2021_04_02_080609) do
   end
 
   create_table "reservations", charset: "utf8mb4", force: :cascade do |t|
-    t.string "pet_id"
-    t.string "disease_id"
-    t.string "hospital_id"
     t.string "pet_name"
     t.datetime "start_date"
     t.datetime "end_date"
     t.string "comment"
     t.string "delete_flg"
     t.datetime "reg_date"
-    t.datetime "reg_user_id"
     t.datetime "update_date"
-    t.datetime "update_user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "type_id"
+    t.bigint "disease_id"
+    t.bigint "hospital_id"
+    t.bigint "reg_user_id"
+    t.bigint "update_user_id"
   end
 
+  add_foreign_key "diseases", "reservations"
+  add_foreign_key "hospitals", "reservations"
+  add_foreign_key "pet_types", "reservations"
   add_foreign_key "reservation_images", "reservations"
 end

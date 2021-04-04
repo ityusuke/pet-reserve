@@ -37,6 +37,8 @@ gem 'momentjs-rails'
 gem "font-awesome-rails"
 gem 'jquery-turbolinks'
 
+gem 'annotate'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 

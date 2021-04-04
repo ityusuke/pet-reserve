@@ -1,12 +1,16 @@
 class ReservationsController < ApplicationController
   def index
-    @reservations = Hospital.instance.hospitals
-    logger.debug(@reservations)
+    @reservations = Reservation.all
   end
+
   def new
     @reservation = Reservation.new
     @reservation_files = @reservation.reservation_images.build
+    @pet_types = ConstData.instance.pet_types
+    @hospitals = ConstData.instance.hospitals
+    @diseases = ConstData.instance.diseases
   end
+
   def create
     @reservation = Reservation.new(reservation_params)
     if @reservation.save
@@ -17,6 +21,8 @@ class ReservationsController < ApplicationController
           @reservation_file = @reservation.reservation_images.new(src: file, reservation_id: @reservation.id)
           @reservation_file.save
         end
+
+
       end
       redirect_to reservation_path(@reservation)
     # 投稿が失敗した場合

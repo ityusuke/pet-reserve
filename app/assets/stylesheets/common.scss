@@ -12,6 +12,9 @@ $color_bg: #F6FFEF;
 $color_compo:#C8F2AE;
 $color_white:#FFF;
 $color_text: #333;
+p,span,h3{
+color: $color_text;
+}
 
 
 .bg_container{
@@ -25,6 +28,13 @@ $color_text: #333;
     margin: 0 auto;
     font-weight: bold;
     margin-bottom: 20px;
+  }
+  .compo_heading{
+    display: flex;
+    justify-content: space-between;
+    color: $color_text;
+    border-bottom: 3px solid $color_white;
+    margin-bottom: 25px;
   }
   .bg_inner{
     width: 80%;
